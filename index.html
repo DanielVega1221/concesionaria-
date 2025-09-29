@@ -282,6 +282,225 @@
             color: white;
             margin: 0 auto 15px;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 2.5rem !important;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.1rem !important;
+                padding: 0 1rem;
+            }
+            
+            .glass-effect {
+                padding: 0.75rem !important;
+                font-size: 0.875rem;
+            }
+            
+            /* Reposition floating stats for mobile */
+            .floating-stats-mobile {
+                position: relative !important;
+                top: auto !important;
+                left: auto !important;
+                right: auto !important;
+                bottom: auto !important;
+                margin: 0.5rem !important;
+                display: inline-block !important;
+            }
+            
+            .floating-stats-container {
+                display: flex !important;
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 0.5rem !important;
+                margin-top: 2rem !important;
+                margin-bottom: 2rem !important;
+            }
+            
+            .car-card {
+                padding: 1rem !important;
+            }
+            
+            .car-card h3 {
+                font-size: 1.25rem !important;
+            }
+            
+            .car-card .price {
+                font-size: 1.5rem !important;
+            }
+            
+            .section-title {
+                font-size: 2rem !important;
+                text-align: center;
+            }
+            
+            .section-subtitle {
+                font-size: 1rem !important;
+                text-align: center;
+                padding: 0 1rem;
+            }
+            
+            /* Improve button sizes on mobile */
+            .mobile-friendly-btn {
+                padding: 0.875rem 1.5rem !important;
+                font-size: 1rem !important;
+                min-height: 44px;
+            }
+            
+            /* Better spacing for mobile */
+            .mobile-section-padding {
+                padding: 3rem 1rem !important;
+            }
+            
+            /* Hide complex animations on mobile for better performance */
+            .floating-car {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem !important;
+            }
+            
+            .container {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* Stack elements vertically on very small screens */
+            .mobile-stack {
+                flex-direction: column !important;
+                gap: 1rem !important;
+            }
+        }
+
+        /* Countdown Timer Styles */
+        .countdown-container {
+            background: linear-gradient(135deg, rgba(220, 38, 38, 0.1), rgba(0, 0, 0, 0.8));
+            border: 2px solid #dc2626;
+            border-radius: 15px;
+            padding: 1.5rem;
+            margin: 2rem auto;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(220, 38, 38, 0.3);
+        }
+
+        .countdown-title {
+            color: #ffffff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .time-unit {
+            background: rgba(0, 0, 0, 0.7);
+            border: 2px solid #dc2626;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            min-width: 80px;
+            transition: all 0.3s ease;
+        }
+
+        .time-unit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        .time-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #dc2626;
+            display: block;
+            line-height: 1;
+        }
+
+        .time-label {
+            font-size: 0.875rem;
+            color: #ffffff;
+            margin-top: 0.5rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .countdown-container {
+                margin: 1rem 0.5rem;
+                padding: 1rem 0.5rem;
+            }
+            
+            .countdown-timer {
+                gap: 0.5rem;
+            }
+            
+            .time-unit {
+                min-width: 60px;
+                padding: 0.5rem 0.25rem;
+                flex: 1;
+                max-width: 80px;
+            }
+            
+            .time-number {
+                font-size: 1.25rem;
+            }
+            
+            .time-label {
+                font-size: 0.7rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .countdown-container {
+                margin: 1rem 0.25rem;
+                padding: 0.75rem 0.25rem;
+            }
+            
+            .countdown-timer {
+                gap: 0.25rem;
+                padding: 0 0.5rem;
+            }
+            
+            .time-unit {
+                min-width: 50px;
+                padding: 0.4rem 0.2rem;
+                max-width: 70px;
+            }
+            
+            .time-number {
+                font-size: 1.1rem;
+            }
+            
+            .time-label {
+                font-size: 0.65rem;
+            }
+            
+            .countdown-title {
+                font-size: 1rem;
+            }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
     </style>
 </head>
 <body class="bg-black">
@@ -320,21 +539,38 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden">
+    <section class="hero-bg min-h-screen flex items-center justify-center text-white relative overflow-hidden mobile-section-padding">
         <div class="speed-lines absolute inset-0 opacity-30"></div>
         <div class="container mx-auto px-6 text-center relative z-10">
-            <h2 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+            <h2 class="hero-title text-5xl md:text-7xl font-bold mb-6 leading-tight">
                 Tu próximo auto,<br>
                 <span class="text-red-400">hoy mismo</span>
             </h2>
-            <p class="text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
+            <p class="hero-subtitle text-xl md:text-2xl mb-8 text-gray-200 max-w-2xl mx-auto">
                 Descubre nuestra amplia selección de vehículos nuevos y usados con la mejor financiación del mercado
             </p>
-            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <button onclick="scrollToSection('catalogo')" class="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
+            
+            <!-- Floating Stats - Mobile Version (shown on small screens) -->
+            <div class="floating-stats-container md:hidden mb-8">
+                <div class="floating-stats-mobile glass-effect rounded-lg p-3 text-center animate-fade-scale">
+                    <div class="text-xl font-bold text-yellow-400">25+</div>
+                    <div class="text-xs text-gray-300">Años de experiencia</div>
+                </div>
+                <div class="floating-stats-mobile glass-effect rounded-lg p-3 text-center animate-fade-scale">
+                    <div class="text-xl font-bold text-green-400">5000+</div>
+                    <div class="text-xs text-gray-300">Clientes satisfechos</div>
+                </div>
+                <div class="floating-stats-mobile glass-effect rounded-lg p-3 text-center animate-fade-scale">
+                    <div class="text-xl font-bold text-blue-400">500+</div>
+                    <div class="text-xs text-gray-300">Autos disponibles</div>
+                </div>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center mobile-stack">
+                <button onclick="scrollToSection('catalogo')" class="mobile-friendly-btn bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-all transform hover:scale-105">
                     Ver Catálogo
                 </button>
-                <button onclick="scrollToSection('financiacion')" class="border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 py-4 rounded-lg text-lg font-semibold transition-all">
+                <button onclick="scrollToSection('financiacion')" class="mobile-friendly-btn border-2 border-white text-white hover:bg-white hover:text-slate-800 px-8 py-4 rounded-lg text-lg font-semibold transition-all">
                     Solicitar Financiación
                 </button>
             </div>
@@ -351,33 +587,33 @@
             </svg>
         </div>
         
-        <!-- Floating Stats -->
-        <div class="absolute top-20 left-10 glass-effect rounded-lg p-4 text-center animate-fade-scale">
+        <!-- Floating Stats - Desktop Version (hidden on small screens) -->
+        <div class="hidden md:block absolute top-20 left-10 glass-effect rounded-lg p-4 text-center animate-fade-scale">
             <div class="text-2xl font-bold text-yellow-400">25+</div>
             <div class="text-sm text-gray-300">Años de experiencia</div>
         </div>
         
-        <div class="absolute top-40 right-20 glass-effect rounded-lg p-4 text-center animate-fade-scale" style="animation-delay: 0.3s;">
+        <div class="hidden md:block absolute top-40 right-20 glass-effect rounded-lg p-4 text-center animate-fade-scale" style="animation-delay: 0.3s;">
             <div class="text-2xl font-bold text-green-400">5000+</div>
             <div class="text-sm text-gray-300">Clientes satisfechos</div>
         </div>
         
-        <div class="absolute bottom-40 left-20 glass-effect rounded-lg p-4 text-center animate-fade-scale" style="animation-delay: 0.6s;">
+        <div class="hidden md:block absolute bottom-40 left-20 glass-effect rounded-lg p-4 text-center animate-fade-scale" style="animation-delay: 0.6s;">
             <div class="text-2xl font-bold text-blue-400">500+</div>
             <div class="text-sm text-gray-300">Autos disponibles</div>
         </div>
     </section>
 
     <!-- Catalog Section -->
-    <section id="catalogo" class="py-20 bg-black">
+    <section id="catalogo" class="py-20 bg-black mobile-section-padding">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center text-white mb-4">Nuestro <span class="text-red-500">Catálogo</span></h3>
-            <p class="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+            <h3 class="section-title text-4xl font-bold text-center text-white mb-4">Nuestro <span class="text-red-500">Catálogo</span></h3>
+            <p class="section-subtitle text-gray-300 text-center mb-12 max-w-2xl mx-auto">
                 Encuentra el vehículo perfecto para ti entre nuestra amplia selección organizada por marcas
             </p>
             
             <!-- Brand Sections -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 mb-12">
                 <div class="brand-section p-6 text-center cursor-pointer" onclick="filterByBrand('toyota')">
                     <div class="brand-logo">T</div>
                     <h4 class="text-xl font-bold text-white mb-2">Toyota</h4>
@@ -401,26 +637,26 @@
             </div>
             
             <!-- Category Filters -->
-            <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-red-500 bg-red-500 text-white font-semibold" onclick="filterCars('todos')">
+            <div class="flex flex-wrap justify-center gap-2 md:gap-4 mb-12 px-4">
+                <button class="filter-btn active mobile-friendly-btn px-4 md:px-6 py-2 md:py-3 rounded-full border-2 border-red-500 bg-red-500 text-white font-semibold text-sm md:text-base" onclick="filterCars('todos')">
                     Todos
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('suv')">
+                <button class="filter-btn mobile-friendly-btn px-4 md:px-6 py-2 md:py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500 text-sm md:text-base" onclick="filterCars('suv')">
                     SUV
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('sedan')">
+                <button class="filter-btn mobile-friendly-btn px-4 md:px-6 py-2 md:py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500 text-sm md:text-base" onclick="filterCars('sedan')">
                     Sedán
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('pickup')">
+                <button class="filter-btn mobile-friendly-btn px-4 md:px-6 py-2 md:py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500 text-sm md:text-base" onclick="filterCars('pickup')">
                     Pickup
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('usados')">
+                <button class="filter-btn mobile-friendly-btn px-4 md:px-6 py-2 md:py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500 text-sm md:text-base" onclick="filterCars('usados')">
                     Usados
                 </button>
             </div>
             
             <!-- Car Grid -->
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="carGrid">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8" id="carGrid">
                 <!-- Car 1 -->
                 <div class="car-card bg-gray-900 border border-gray-700 rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="suv" data-brand="toyota">
                     <div class="absolute top-3 left-3 z-10 bg-red-500 text-white px-2 py-1 rounded-lg text-xs font-bold flex items-center">
@@ -587,15 +823,15 @@
     </div>
 
     <!-- Statistics Section -->
-    <section class="py-20 bg-gradient-to-r from-black via-gray-900 to-black text-white relative overflow-hidden border-t border-red-600">
+    <section class="py-20 bg-gradient-to-r from-black via-gray-900 to-black text-white relative overflow-hidden border-t border-red-600 mobile-section-padding">
         
         <div class="container mx-auto px-6 relative z-10">
-            <h3 class="text-4xl font-bold text-center mb-4">Números que nos <span class="text-red-500">respaldan</span></h3>
-            <p class="text-gray-300 text-center mb-16 max-w-2xl mx-auto">
+            <h3 class="section-title text-4xl font-bold text-center mb-4">Números que nos <span class="text-red-500">respaldan</span></h3>
+            <p class="section-subtitle text-gray-300 text-center mb-16 max-w-2xl mx-auto">
                 Más de dos décadas construyendo confianza y satisfaciendo sueños automovilísticos
             </p>
             
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 <div class="text-center group">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
                         <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -654,12 +890,12 @@
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <h3 class="text-4xl font-bold text-center text-white mb-4">Opciones de <span class="text-red-500">Financiación</span></h3>
-            <p class="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+            <h3 class="section-title text-4xl font-bold text-center text-white mb-4">Opciones de <span class="text-red-500">Financiación</span></h3>
+            <p class="section-subtitle text-gray-300 text-center mb-12 max-w-2xl mx-auto">
                 Facilitamos la compra de tu auto con planes flexibles adaptados a tu presupuesto
             </p>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <!-- Plan 1 -->
                 <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-xl p-8 text-center hover:transform hover:scale-105 hover:border-red-600 transition-all duration-300">
                     <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
@@ -719,7 +955,7 @@
         <div class="container mx-auto px-6">
             <h3 class="text-4xl font-bold text-center mb-12">¿Por qué elegir <span class="text-red-500">Giamens Cars</span>?</h3>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <div class="text-center bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition-all duration-300">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
                         <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
@@ -754,11 +990,11 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-900 border-t border-red-600">
+    <section class="py-20 bg-gray-900 border-t border-red-600 mobile-section-padding">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center text-white mb-12">Lo que dicen nuestros <span class="text-red-500">clientes</span></h3>
+            <h3 class="section-title text-4xl font-bold text-center text-white mb-12">Lo que dicen nuestros <span class="text-red-500">clientes</span></h3>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <div class="bg-black border border-gray-700 rounded-xl shadow-lg p-8 hover:border-red-600 transition-all duration-300">
                     <div class="flex items-center mb-4">
                         <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
@@ -823,13 +1059,38 @@
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h3 class="text-5xl font-bold mb-4 text-white">🎉 Ofertas <span class="text-red-500">Imperdibles</span></h3>
-                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                <h3 class="section-title text-5xl font-bold mb-4 text-white">🎉 Ofertas <span class="text-red-500">Imperdibles</span></h3>
+                <p class="section-subtitle text-xl text-gray-300 max-w-3xl mx-auto mb-8">
                     ¡Solo por tiempo limitado! No dejes pasar estas increíbles promociones
                 </p>
+                
+                <!-- Countdown Timer -->
+                <div class="countdown-container">
+                    <div class="countdown-title">
+                        🔥 Ofertas terminan en:
+                    </div>
+                    <div class="countdown-timer" id="countdown">
+                        <div class="time-unit">
+                            <span class="time-number" id="days">01</span>
+                            <div class="time-label">Días</div>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="hours">12</span>
+                            <div class="time-label">Horas</div>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="minutes">46</span>
+                            <div class="time-label">Minutos</div>
+                        </div>
+                        <div class="time-unit">
+                            <span class="time-number" id="seconds">59</span>
+                            <div class="time-label">Segundos</div>
+                        </div>
+                    </div>
+                </div>
             </div>
             
-            <div class="grid md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
                 <!-- Offer 1 -->
                 <div class="bg-gray-900 border border-gray-700 rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden hover:border-red-600 transition-all duration-300">
                     <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
@@ -912,11 +1173,11 @@
                 Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
             </p>
             
-            <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                 <!-- Contact Form -->
                 <div>
-                    <form class="bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-2xl" onsubmit="handleSubmit(event)">
-                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <form class="bg-gray-900 border border-gray-700 rounded-2xl p-6 md:p-8 shadow-2xl" onsubmit="handleSubmit(event)">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 mb-6">
                             <div class="relative">
                                 <label class="block text-white font-semibold mb-2">Nombre completo</label>
                                 <input type="text" class="w-full px-4 py-3 bg-black border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300 hover:border-red-400" placeholder="Tu nombre completo" required>
@@ -1061,7 +1322,7 @@
     <!-- Footer -->
     <footer class="bg-black border-t border-red-600 text-white py-12">
         <div class="container mx-auto px-6">
-            <div class="grid md:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
                 <div>
                     <div class="flex justify-center mb-6">
                         <img src="autitos.png" alt="Giamens Cars Logo" class="w-24 h-24 object-contain">
@@ -1295,9 +1556,63 @@
         document.addEventListener('DOMContentLoaded', function() {
             console.log('Modal system initialized');
             
+            // Initialize countdown timer
+            initCountdownTimer();
+            
             // Test modal functionality - uncomment the line below to test
             // setTimeout(() => openCarModal('toyota-rav4'), 2000);
         });
+
+        // Countdown Timer Function
+        function initCountdownTimer() {
+            // Set the target date (24 hours from now for demo purposes)
+            const targetDate = new Date();
+            targetDate.setTime(targetDate.getTime() + (1 * 24 * 60 * 60 * 1000) + (12 * 60 * 60 * 1000) + (46 * 60 * 1000) + (59 * 1000));
+            
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const timeLeft = targetDate.getTime() - now;
+                
+                if (timeLeft > 0) {
+                    const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+                    const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+                    
+                    // Update the display with leading zeros
+                    document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                    document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                    document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                    document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+                    
+                    // Add pulse effect when seconds change
+                    const secondsElement = document.getElementById('seconds');
+                    secondsElement.style.animation = 'none';
+                    setTimeout(() => {
+                        secondsElement.style.animation = 'pulse 0.5s ease-in-out';
+                    }, 10);
+                } else {
+                    // Timer ended
+                    document.getElementById('days').textContent = '00';
+                    document.getElementById('hours').textContent = '00';
+                    document.getElementById('minutes').textContent = '00';
+                    document.getElementById('seconds').textContent = '00';
+                    
+                    // Change timer message
+                    document.querySelector('.countdown-title').innerHTML = '🎉 ¡Ofertas renovadas!';
+                    
+                    // Restart timer for next day
+                    setTimeout(() => {
+                        targetDate.setTime(new Date().getTime() + (24 * 60 * 60 * 1000));
+                        document.querySelector('.countdown-title').innerHTML = '🔥 Ofertas terminan en:';
+                    }, 5000);
+                }
+            }
+            
+            // Update countdown immediately and then every second
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        }
 
         function handleSubmit(event) {
             event.preventDefault();
