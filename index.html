@@ -10,11 +10,13 @@
         body {
             box-sizing: border-box;
             font-family: 'Poppins', sans-serif;
+            background-color: #000000;
+            color: #ffffff;
         }
         
         .hero-bg {
-            background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(71, 85, 105, 0.8)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23334155" width="1200" height="800"/><path fill="%23475569" d="M0 400L50 380C100 360 200 320 300 300C400 280 500 280 600 300C700 320 800 360 900 380C1000 400 1100 400 1150 400L1200 400V800H1150C1100 800 1000 800 900 800C800 800 700 800 600 800C500 800 400 800 300 800C200 800 100 800 50 800H0V400Z"/></svg>');
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.95), rgba(20, 20, 20, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23000000" width="1200" height="800"/><path fill="%23111111" d="M0 400L50 380C100 360 200 320 300 300C400 280 500 280 600 300C700 320 800 360 900 380C1000 400 1100 400 1150 400L1200 400V800H1150C1100 800 1000 800 900 800C800 800 700 800 600 800C500 800 400 800 300 800C200 800 100 800 50 800H0V400Z"/></svg>');
             background-size: cover;
             background-position: center;
         }
@@ -43,35 +45,16 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
         
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: white;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            animation: pulse 2s infinite;
-        }
-        
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-            100% { transform: scale(1); }
-        }
+        /* Removed WhatsApp float button */
         
         .filter-btn {
             transition: all 0.3s ease;
         }
         
         .filter-btn.active {
-            background: linear-gradient(135deg, #dc2626, #ea580c);
+            background: #dc2626;
             color: white;
+            border-color: #dc2626;
         }
         
         .star-rating {
@@ -101,11 +84,6 @@
             }
         }
         
-        @keyframes sparkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
-        }
-        
         .animate-slide-up {
             animation: slideInUp 0.6s ease-out forwards;
         }
@@ -113,20 +91,6 @@
         .animate-fade-scale {
             animation: fadeInScale 0.8s ease-out forwards;
         }
-        
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
-            background: #fbbf24;
-            border-radius: 50%;
-            animation: sparkle 2s infinite;
-        }
-        
-        .sparkle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .sparkle:nth-child(2) { top: 60%; left: 80%; animation-delay: 0.5s; }
-        .sparkle:nth-child(3) { top: 30%; left: 70%; animation-delay: 1s; }
-        .sparkle:nth-child(4) { top: 70%; left: 20%; animation-delay: 1.5s; }
         
         .floating-car {
             animation: float 6s ease-in-out infinite;
@@ -223,31 +187,121 @@
             0% { background-position: 200% 0; }
             100% { background-position: -200% 0; }
         }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(5px);
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .modal-content {
+            position: relative;
+            background-color: #000000;
+            margin: 0 auto;
+            padding: 0;
+            width: 100%;
+            max-width: 800px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(220, 38, 38, 0.3);
+            border: 3px solid #dc2626;
+            animation: modalSlideIn 0.4s ease-out;
+            min-height: auto;
+        }
+
+        @keyframes modalSlideIn {
+            from {
+                transform: translateY(-50px) scale(0.9);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-close {
+            color: #ffffff;
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 28px;
+            font-weight: bold;
+            z-index: 10001;
+            cursor: pointer;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #dc2626;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            line-height: 1;
+            border: 2px solid #ffffff;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        .modal-close:hover {
+            background: #991b1b;
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px rgba(220, 38, 38, 0.6);
+        }
+
+        .brand-section {
+            background: #111111;
+            border: 2px solid #333333;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .brand-section:hover {
+            border-color: #dc2626;
+            transform: translateY(-5px);
+        }
+
+        .brand-logo {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, #dc2626, #991b1b);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            margin: 0 auto 15px;
+        }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- WhatsApp Float Button -->
-    <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="whatsapp-float flex items-center justify-center">
-        <svg width="30" height="30" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-        </svg>
-    </a>
+<body class="bg-black">
+    <!-- Removed WhatsApp Float Button as requested -->
 
     <!-- Header -->
-    <header class="bg-slate-800 text-white shadow-lg relative z-50">
+    <header class="bg-black border-b border-red-600 text-white shadow-lg relative z-50">
         <div class="container mx-auto px-6 py-4">
             <div class="flex justify-between items-center">
                 <div class="flex items-center">
-                    <img src="autitos.png" alt="Giamens Cars Logo" class="w-24 h-24 object-contain">
+                    <img src="autitos.png" alt="Giamens Cars Logo" class="w-28 h-28 object-contain">
                 </div>
                 <nav class="hidden md:flex space-x-8">
-                    <a href="#catalogo" class="px-3 py-2 rounded-lg hover:bg-slate-700 hover:text-red-400 transition-all duration-300">Catálogo</a>
-                    <a href="#financiacion" class="px-3 py-2 rounded-lg hover:bg-slate-700 hover:text-red-400 transition-all duration-300">Financiación</a>
-                    <a href="#contacto" class="px-3 py-2 rounded-lg hover:bg-slate-700 hover:text-red-400 transition-all duration-300">Contacto</a>
+                    <a href="#catalogo" class="px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-all duration-300 font-semibold text-red-400">Catálogo</a>
+                    <a href="#financiacion" class="px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-all duration-300 font-semibold">Financiación</a>
+                    <a href="#contacto" class="px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-all duration-300 font-semibold">Contacto</a>
                 </nav>
                 
                 <!-- Mobile menu button -->
-                <button class="md:hidden p-2 rounded-lg hover:bg-slate-700 transition-colors" onclick="toggleMobileMenu()">
+                <button class="md:hidden p-2 rounded-lg hover:bg-red-600 transition-colors" onclick="toggleMobileMenu()">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                     </svg>
@@ -257,9 +311,9 @@
             <!-- Mobile menu -->
             <div id="mobileMenu" class="hidden md:hidden mt-4 pb-4">
                 <nav class="flex flex-col space-y-2">
-                    <a href="#catalogo" class="px-3 py-2 rounded-lg hover:bg-slate-700 hover:text-red-400 transition-colors">Catálogo</a>
-                    <a href="#financiacion" class="px-3 py-2 rounded-lg hover:bg-slate-700 hover:text-red-400 transition-colors">Financiación</a>
-                    <a href="#contacto" class="px-3 py-2 rounded-lg hover:bg-slate-700 hover:text-red-400 transition-colors">Contacto</a>
+                    <a href="#catalogo" class="px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors font-semibold text-red-400">Catálogo</a>
+                    <a href="#financiacion" class="px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors font-semibold">Financiación</a>
+                    <a href="#contacto" class="px-4 py-2 rounded-lg hover:bg-red-600 hover:text-white transition-colors font-semibold">Contacto</a>
                 </nav>
             </div>
         </div>
@@ -285,12 +339,6 @@
                 </button>
             </div>
         </div>
-        
-        <!-- Sparkles Effect -->
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
-        <div class="sparkle"></div>
         
         <!-- Car SVG -->
         <div class="absolute bottom-10 right-10 opacity-20 floating-car">
@@ -321,28 +369,52 @@
     </section>
 
     <!-- Catalog Section -->
-    <section id="catalogo" class="py-20 bg-white">
+    <section id="catalogo" class="py-20 bg-black">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center text-slate-800 mb-4">Nuestro Catálogo</h3>
-            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-                Encuentra el vehículo perfecto para ti entre nuestra amplia selección
+            <h3 class="text-4xl font-bold text-center text-white mb-4">Nuestro <span class="text-red-500">Catálogo</span></h3>
+            <p class="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
+                Encuentra el vehículo perfecto para ti entre nuestra amplia selección organizada por marcas
             </p>
             
-            <!-- Filters -->
+            <!-- Brand Sections -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+                <div class="brand-section p-6 text-center cursor-pointer" onclick="filterByBrand('toyota')">
+                    <div class="brand-logo">T</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Toyota</h4>
+                    <p class="text-gray-400 text-sm">Confiabilidad japonesa</p>
+                </div>
+                <div class="brand-section p-6 text-center cursor-pointer" onclick="filterByBrand('honda')">
+                    <div class="brand-logo">H</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Honda</h4>
+                    <p class="text-gray-400 text-sm">Innovación y eficiencia</p>
+                </div>
+                <div class="brand-section p-6 text-center cursor-pointer" onclick="filterByBrand('ford')">
+                    <div class="brand-logo">F</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Ford</h4>
+                    <p class="text-gray-400 text-sm">Fuerza americana</p>
+                </div>
+                <div class="brand-section p-6 text-center cursor-pointer" onclick="filterByBrand('mazda')">
+                    <div class="brand-logo">M</div>
+                    <h4 class="text-xl font-bold text-white mb-2">Mazda</h4>
+                    <p class="text-gray-400 text-sm">Diseño y deportividad</p>
+                </div>
+            </div>
+            
+            <!-- Category Filters -->
             <div class="flex flex-wrap justify-center gap-4 mb-12">
-                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-red-500 text-red-500 font-semibold" onclick="filterCars('todos')">
+                <button class="filter-btn active px-6 py-3 rounded-full border-2 border-red-500 bg-red-500 text-white font-semibold" onclick="filterCars('todos')">
                     Todos
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" onclick="filterCars('suv')">
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('suv')">
                     SUV
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" onclick="filterCars('sedan')">
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('sedan')">
                     Sedán
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" onclick="filterCars('pickup')">
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('pickup')">
                     Pickup
                 </button>
-                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-300 text-gray-600 font-semibold" onclick="filterCars('usados')">
+                <button class="filter-btn px-6 py-3 rounded-full border-2 border-gray-600 text-gray-300 font-semibold hover:border-red-500 hover:text-red-500" onclick="filterCars('usados')">
                     Usados
                 </button>
             </div>
@@ -350,17 +422,17 @@
             <!-- Car Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="carGrid">
                 <!-- Car 1 -->
-                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="suv">
+                <div class="car-card bg-gray-900 border border-gray-700 rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="suv" data-brand="toyota">
                     <div class="absolute top-3 left-3 z-10 bg-red-500 text-white px-2 py-1 rounded-lg text-xs font-bold flex items-center">
                         🔥 HOT
                     </div>
                     <div class="absolute top-3 right-3 z-10 bg-green-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
                         HÍBRIDO
                     </div>
-                    <div class="h-48 bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center car-3d relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
+                    <div class="h-48 bg-gradient-to-br from-red-900 to-black flex items-center justify-center car-3d relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-500/20 to-red-800/20"></div>
                         <svg width="120" height="60" viewBox="0 0 120 60" fill="none" class="relative z-10">
-                            <path d="M10 40h100c5 0 10-5 10-10V20c0-5-5-10-10-10H90l-10-10H40L30 10H10c-5 0-10 5-10 10v10c0 5 5 10 10 10z" fill="#e2e8f0"/>
+                            <path d="M10 40h100c5 0 10-5 10-10V20c0-5-5-10-10-10H90l-10-10H40L30 10H10c-5 0-10 5-10 10v10c0 5 5 10 10 10z" fill="#dc2626"/>
                             <circle cx="25" cy="50" r="8" fill="#374151"/>
                             <circle cx="95" cy="50" r="8" fill="#374151"/>
                             <rect x="15" y="15" width="15" height="10" rx="2" fill="rgba(255,255,255,0.8)"/>
@@ -369,35 +441,35 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-2">
-                            <h4 class="text-xl font-bold text-slate-800">Toyota RAV4 2024</h4>
-                            <div class="ml-2 star-rating text-sm">★★★★★</div>
+                            <h4 class="text-xl font-bold text-white">Toyota RAV4 2024</h4>
+                            <div class="ml-2 star-rating text-sm text-red-400">★★★★★</div>
                         </div>
-                        <p class="text-gray-600 mb-4">SUV compacta con tecnología híbrida avanzada</p>
+                        <p class="text-gray-300 mb-4">SUV compacta con tecnología híbrida avanzada</p>
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex space-x-2">
-                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">AWD</span>
-                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">ECO</span>
+                                <span class="bg-red-600 text-white px-2 py-1 rounded text-xs">AWD</span>
+                                <span class="bg-green-600 text-white px-2 py-1 rounded text-xs">ECO</span>
                             </div>
                             <div class="text-right">
                                 <div class="text-sm text-gray-500 line-through">$48,990</div>
-                                <div class="price-tag text-xl font-bold">$45,990</div>
+                                <div class="text-xl font-bold text-red-500">$45,990</div>
                             </div>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-slate-700 to-slate-800 text-white px-4 py-3 rounded-lg hover:from-slate-800 hover:to-slate-900 transition-all duration-300 neon-glow">
-                            Ver Detalles & Probar
+                        <button class="w-full bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition-all duration-300" onclick="openCarModal('toyota-rav4')">
+                            Ver Detalles
                         </button>
                     </div>
                 </div>
                 
                 <!-- Car 2 -->
-                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="sedan">
-                    <div class="absolute top-3 right-3 z-10 bg-purple-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
+                <div class="car-card bg-gray-900 border border-gray-700 rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="sedan" data-brand="honda">
+                    <div class="absolute top-3 right-3 z-10 bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
                         EJECUTIVO
                     </div>
-                    <div class="h-48 bg-gradient-to-br from-blue-800 to-blue-900 flex items-center justify-center car-3d relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-blue-500/20"></div>
+                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center car-3d relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-red-800/10"></div>
                         <svg width="120" height="60" viewBox="0 0 120 60" fill="none" class="relative z-10">
-                            <path d="M15 35h90c3 0 6-3 6-6V25c0-3-3-6-6-6H85l-8-8H43l-8 8H15c-3 0-6 3-6 6v4c0 3 3 6 6 6z" fill="#e2e8f0"/>
+                            <path d="M15 35h90c3 0 6-3 6-6V25c0-3-3-6-6-6H85l-8-8H43l-8 8H15c-3 0-6 3-6 6v4c0 3 3 6 6 6z" fill="#dc2626"/>
                             <circle cx="28" cy="45" r="6" fill="#374151"/>
                             <circle cx="92" cy="45" r="6" fill="#374151"/>
                             <rect x="20" y="20" width="12" height="8" rx="2" fill="rgba(255,255,255,0.8)"/>
@@ -406,36 +478,36 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-2">
-                            <h4 class="text-xl font-bold text-slate-800">Honda Accord 2024</h4>
-                            <div class="ml-2 star-rating text-sm">★★★★☆</div>
+                            <h4 class="text-xl font-bold text-white">Honda Accord 2024</h4>
+                            <div class="ml-2 star-rating text-sm text-red-400">★★★★☆</div>
                         </div>
-                        <p class="text-gray-600 mb-4">Sedán ejecutivo con máximo confort y tecnología</p>
+                        <p class="text-gray-300 mb-4">Sedán ejecutivo con máximo confort y tecnología</p>
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex space-x-2">
-                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">LUXURY</span>
-                                <span class="bg-gray-100 text-gray-800 px-2 py-1 rounded text-xs">TURBO</span>
+                                <span class="bg-red-600 text-white px-2 py-1 rounded text-xs">LUXURY</span>
+                                <span class="bg-gray-600 text-white px-2 py-1 rounded text-xs">TURBO</span>
                             </div>
-                            <div class="price-tag text-xl font-bold">$38,500</div>
+                            <div class="text-xl font-bold text-red-500">$38,500</div>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-slate-700 to-slate-800 text-white px-4 py-3 rounded-lg hover:from-slate-800 hover:to-slate-900 transition-all duration-300">
-                            Ver Detalles & Probar
+                        <button class="w-full bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition-all duration-300" onclick="openCarModal('honda-accord')">
+                            Ver Detalles
                         </button>
                     </div>
                 </div>
                 
                 <!-- Car 3 -->
-                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="pickup">
-                    <div class="absolute top-3 left-3 z-10 bg-orange-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
+                <div class="car-card bg-gray-900 border border-gray-700 rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="pickup" data-brand="ford">
+                    <div class="absolute top-3 left-3 z-10 bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
                         TRABAJO
                     </div>
-                    <div class="absolute top-3 right-3 z-10 bg-yellow-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
+                    <div class="absolute top-3 right-3 z-10 bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold">
                         4X4
                     </div>
-                    <div class="h-48 bg-gradient-to-br from-gray-700 to-gray-900 flex items-center justify-center car-3d relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-orange-500/20 to-red-500/20"></div>
+                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center car-3d relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-red-800/10"></div>
                         <svg width="120" height="60" viewBox="0 0 120 60" fill="none" class="relative z-10">
-                            <path d="M10 35h50V20c0-3 3-6 6-6h30l10 10v11h4c3 0 6 3 6 6v4c0 3-3 6-6 6H10c-3 0-6-3-6-6V41c0-3 3-6 6-6z" fill="#e2e8f0"/>
-                            <rect x="70" y="35" width="35" height="15" fill="#d1d5db"/>
+                            <path d="M10 35h50V20c0-3 3-6 6-6h30l10 10v11h4c3 0 6 3 6 6v4c0 3-3 6-6 6H10c-3 0-6-3-6-6V41c0-3 3-6 6-6z" fill="#dc2626"/>
+                            <rect x="70" y="35" width="35" height="15" fill="#991b1b"/>
                             <circle cx="25" cy="50" r="6" fill="#374151"/>
                             <circle cx="95" cy="50" r="6" fill="#374151"/>
                             <rect x="15" y="20" width="12" height="8" rx="2" fill="rgba(255,255,255,0.8)"/>
@@ -443,35 +515,35 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-2">
-                            <h4 class="text-xl font-bold text-slate-800">Ford F-150 2024</h4>
-                            <div class="ml-2 star-rating text-sm">★★★★★</div>
+                            <h4 class="text-xl font-bold text-white">Ford F-150 2024</h4>
+                            <div class="ml-2 star-rating text-sm text-red-400">★★★★★</div>
                         </div>
-                        <p class="text-gray-600 mb-4">Pickup resistente para trabajo y aventura extrema</p>
+                        <p class="text-gray-300 mb-4">Pickup resistente para trabajo y aventura extrema</p>
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex space-x-2">
-                                <span class="bg-orange-100 text-orange-800 px-2 py-1 rounded text-xs">4WD</span>
-                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">HEAVY</span>
+                                <span class="bg-red-600 text-white px-2 py-1 rounded text-xs">4WD</span>
+                                <span class="bg-red-600 text-white px-2 py-1 rounded text-xs">HEAVY</span>
                             </div>
-                            <div class="price-tag text-xl font-bold">$52,800</div>
+                            <div class="text-xl font-bold text-red-500">$52,800</div>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-slate-700 to-slate-800 text-white px-4 py-3 rounded-lg hover:from-slate-800 hover:to-slate-900 transition-all duration-300">
-                            Ver Detalles & Probar
+                        <button class="w-full bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition-all duration-300" onclick="openCarModal('ford-f150')">
+                            Ver Detalles
                         </button>
                     </div>
                 </div>
                 
                 <!-- Car 4 -->
-                <div class="car-card bg-white rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="usados">
-                    <div class="absolute top-3 left-3 z-10 bg-orange-600 text-white px-3 py-1 rounded-lg text-xs font-bold animate-pulse">
+                <div class="car-card bg-gray-900 border border-gray-700 rounded-xl shadow-lg overflow-hidden car-showcase relative" data-category="usados" data-brand="mazda">
+                    <div class="absolute top-3 left-3 z-10 bg-red-600 text-white px-3 py-1 rounded-lg text-xs font-bold animate-pulse">
                         USADO PREMIUM
                     </div>
-                    <div class="absolute top-3 right-3 z-10 bg-green-600 text-white px-2 py-1 rounded-lg text-xs font-bold">
+                    <div class="absolute top-3 right-3 z-10 bg-red-600 text-white px-2 py-1 rounded-lg text-xs font-bold">
                         -40% OFF
                     </div>
-                    <div class="h-48 bg-gradient-to-br from-green-700 to-green-900 flex items-center justify-center car-3d relative overflow-hidden">
-                        <div class="absolute inset-0 bg-gradient-to-br from-green-500/20 to-emerald-500/20"></div>
+                    <div class="h-48 bg-gradient-to-br from-gray-800 to-black flex items-center justify-center car-3d relative overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-red-800/10"></div>
                         <svg width="120" height="60" viewBox="0 0 120 60" fill="none" class="relative z-10">
-                            <path d="M10 40h100c5 0 10-5 10-10V20c0-5-5-10-10-10H90l-10-10H40L30 10H10c-5 0-10 5-10 10v10c0 5 5 10 10 10z" fill="#e2e8f0"/>
+                            <path d="M10 40h100c5 0 10-5 10-10V20c0-5-5-10-10-10H90l-10-10H40L30 10H10c-5 0-10 5-10 10v10c0 5 5 10 10 10z" fill="#dc2626"/>
                             <circle cx="25" cy="50" r="8" fill="#374151"/>
                             <circle cx="95" cy="50" r="8" fill="#374151"/>
                             <rect x="15" y="15" width="15" height="10" rx="2" fill="rgba(255,255,255,0.8)"/>
@@ -480,23 +552,23 @@
                     </div>
                     <div class="p-6">
                         <div class="flex items-center mb-2">
-                            <h4 class="text-xl font-bold text-slate-800">Mazda CX-5 2022</h4>
-                            <div class="ml-2 star-rating text-sm">★★★★★</div>
+                            <h4 class="text-xl font-bold text-white">Mazda CX-5 2022</h4>
+                            <div class="ml-2 star-rating text-sm text-red-400">★★★★★</div>
                         </div>
-                        <p class="text-gray-600 mb-2">SUV premium con bajo kilometraje - Como nuevo</p>
-                        <p class="text-sm text-green-600 font-semibold mb-4">📊 Solo 15,000 km • 🛡️ Garantía incluida</p>
+                        <p class="text-gray-300 mb-2">SUV premium con bajo kilometraje - Como nuevo</p>
+                        <p class="text-sm text-red-400 font-semibold mb-4">📊 Solo 15,000 km • 🛡️ Garantía incluida</p>
                         <div class="flex items-center justify-between mb-4">
                             <div class="flex space-x-2">
-                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">LOW KM</span>
-                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">PREMIUM</span>
+                                <span class="bg-red-600 text-white px-2 py-1 rounded text-xs">LOW KM</span>
+                                <span class="bg-gray-600 text-white px-2 py-1 rounded text-xs">PREMIUM</span>
                             </div>
                             <div class="text-right">
                                 <div class="text-sm text-gray-500 line-through">$48,000</div>
-                                <div class="price-tag text-xl font-bold">$28,900</div>
+                                <div class="text-xl font-bold text-red-500">$28,900</div>
                             </div>
                         </div>
-                        <button class="w-full bg-gradient-to-r from-green-600 to-green-700 text-white px-4 py-3 rounded-lg hover:from-green-700 hover:to-green-800 transition-all duration-300">
-                            Ver Detalles & Probar
+                        <button class="w-full bg-red-600 text-white px-4 py-3 rounded-lg hover:bg-red-700 transition-all duration-300" onclick="openCarModal('mazda-cx5')">
+                            Ver Detalles
                         </button>
                     </div>
                 </div>
@@ -504,67 +576,77 @@
         </div>
     </section>
 
+    <!-- Car Modals -->
+    <div id="carModal" class="modal">
+        <div class="modal-content">
+            <span class="modal-close" onclick="closeCarModal()">&times;</span>
+            <div id="modalContent" class="p-0">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
     <!-- Statistics Section -->
-    <section class="py-20 bg-gradient-to-r from-red-600 via-red-700 to-red-800 text-white relative overflow-hidden">
+    <section class="py-20 bg-gradient-to-r from-black via-gray-900 to-black text-white relative overflow-hidden border-t border-red-600">
         
         <div class="container mx-auto px-6 relative z-10">
-            <h3 class="text-4xl font-bold text-center mb-4">Números que nos respaldan</h3>
-            <p class="text-red-200 text-center mb-16 max-w-2xl mx-auto">
+            <h3 class="text-4xl font-bold text-center mb-4">Números que nos <span class="text-red-500">respaldan</span></h3>
+            <p class="text-gray-300 text-center mb-16 max-w-2xl mx-auto">
                 Más de dos décadas construyendo confianza y satisfaciendo sueños automovilísticos
             </p>
             
             <div class="grid md:grid-cols-4 gap-8">
                 <div class="text-center group">
-                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                    <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-                    <div class="text-4xl font-bold mb-2 counter" data-count="15000">0</div>
-                    <p class="text-red-200 font-semibold">Autos Vendidos</p>
+                    <div class="text-4xl font-bold mb-2 counter text-red-500" data-count="15000">0</div>
+                    <p class="text-gray-300 font-semibold">Autos Vendidos</p>
                 </div>
                 
                 <div class="text-center group">
-                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                    <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M16 6l2.29 2.29-4.88 4.88-4-4L2 16.59 3.41 18l6-6 4 4 6.3-6.29L22 12V6z"/>
                         </svg>
                     </div>
-                    <div class="text-4xl font-bold mb-2 counter" data-count="98">0</div>
-                    <p class="text-red-200 font-semibold">% Satisfacción</p>
+                    <div class="text-4xl font-bold mb-2 counter text-red-500" data-count="98">0</div>
+                    <p class="text-gray-300 font-semibold">% Satisfacción</p>
                 </div>
                 
                 <div class="text-center group">
-                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                    <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                     </div>
-                    <div class="text-4xl font-bold mb-2 counter" data-count="25">0</div>
-                    <p class="text-red-200 font-semibold">Años de Experiencia</p>
+                    <div class="text-4xl font-bold mb-2 counter text-red-500" data-count="25">0</div>
+                    <p class="text-gray-300 font-semibold">Años de Experiencia</p>
                 </div>
                 
                 <div class="text-center group">
-                    <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                    <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm-1 16H9V7h9v14z"/>
                         </svg>
                     </div>
-                    <div class="text-4xl font-bold mb-2 counter" data-count="50">0</div>
-                    <p class="text-red-200 font-semibold">Marcas Disponibles</p>
+                    <div class="text-4xl font-bold mb-2 counter text-red-500" data-count="50">0</div>
+                    <p class="text-gray-300 font-semibold">Marcas Disponibles</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Financing Section -->
-    <section id="financiacion" class="py-20 bg-gradient-to-br from-slate-800 via-blue-900 to-slate-900 relative overflow-hidden">
+    <section id="financiacion" class="py-20 bg-black border-t border-red-600 relative overflow-hidden">
         <!-- Background Pattern -->
-        <div class="absolute inset-0 opacity-10">
+        <div class="absolute inset-0 opacity-5">
             <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                     <pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse">
-                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="currentColor" stroke-width="0.5"/>
+                        <path d="M 10 0 L 0 0 0 10" fill="none" stroke="#dc2626" stroke-width="0.5"/>
                     </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#grid)" />
@@ -572,59 +654,59 @@
         </div>
         
         <div class="container mx-auto px-6 relative z-10">
-            <h3 class="text-4xl font-bold text-center text-white mb-4">Opciones de Financiación</h3>
+            <h3 class="text-4xl font-bold text-center text-white mb-4">Opciones de <span class="text-red-500">Financiación</span></h3>
             <p class="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
                 Facilitamos la compra de tu auto con planes flexibles adaptados a tu presupuesto
             </p>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Plan 1 -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-8 text-center border border-gray-200/50 hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-xl p-8 text-center hover:transform hover:scale-105 hover:border-red-600 transition-all duration-300">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-4">Plan Básico</h4>
-                    <p class="text-gray-600 mb-6">Financiación hasta 36 meses con tasa preferencial</p>
-                    <div class="text-3xl font-bold text-red-600 mb-2">5.9%</div>
-                    <p class="text-sm text-gray-500 mb-6">Tasa anual</p>
-                    <button class="w-full bg-gradient-to-r from-slate-700 to-slate-800 text-white py-3 rounded-lg hover:from-slate-800 hover:to-slate-900 transition-all duration-300 shadow-lg">
+                    <h4 class="text-xl font-bold text-white mb-4">Plan Básico</h4>
+                    <p class="text-gray-300 mb-6">Financiación hasta 36 meses con tasa preferencial</p>
+                    <div class="text-3xl font-bold text-red-500 mb-2">5.9%</div>
+                    <p class="text-sm text-gray-400 mb-6">Tasa anual</p>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg">
                         Más Información
                     </button>
                 </div>
                 
                 <!-- Plan 2 -->
-                <div class="bg-gradient-to-br from-white to-red-50/50 backdrop-blur-sm rounded-xl shadow-2xl p-8 text-center border-2 border-red-500/50 relative hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
+                <div class="bg-gray-900 border-2 border-red-600 rounded-xl shadow-2xl p-8 text-center relative hover:transform hover:scale-105 transition-all duration-300">
+                    <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-red-600 text-white px-6 py-2 rounded-full text-sm font-semibold shadow-lg">
                         MÁS POPULAR
                     </div>
-                    <div class="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-4">Plan Premium</h4>
-                    <p class="text-gray-600 mb-6">Financiación hasta 60 meses con seguro incluido</p>
-                    <div class="text-3xl font-bold text-red-600 mb-2">7.5%</div>
-                    <p class="text-sm text-gray-500 mb-6">Tasa anual</p>
-                    <button class="w-full bg-gradient-to-r from-red-500 to-red-600 text-white py-3 rounded-lg hover:from-red-600 hover:to-red-700 transition-all duration-300 shadow-lg">
+                    <h4 class="text-xl font-bold text-white mb-4">Plan Premium</h4>
+                    <p class="text-gray-300 mb-6">Financiación hasta 60 meses con seguro incluido</p>
+                    <div class="text-3xl font-bold text-red-500 mb-2">7.5%</div>
+                    <p class="text-sm text-gray-400 mb-6">Tasa anual</p>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg">
                         Más Información
                     </button>
                 </div>
                 
                 <!-- Plan 3 -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-xl shadow-xl p-8 text-center border border-gray-200/50 hover:transform hover:scale-105 transition-all duration-300">
-                    <div class="w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
+                <div class="bg-gray-900 border border-gray-700 rounded-xl shadow-xl p-8 text-center hover:transform hover:scale-105 hover:border-red-600 transition-all duration-300">
+                    <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6 shadow-lg">
                         <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold text-slate-800 mb-4">Plan Ahorro</h4>
-                    <p class="text-gray-600 mb-6">Programa de ahorro previo con descuentos especiales</p>
-                    <div class="text-3xl font-bold text-red-600 mb-2">15%</div>
-                    <p class="text-sm text-gray-500 mb-6">Descuento</p>
-                    <button class="w-full bg-gradient-to-r from-slate-700 to-slate-800 text-white py-3 rounded-lg hover:from-slate-800 hover:to-slate-900 transition-all duration-300 shadow-lg">
+                    <h4 class="text-xl font-bold text-white mb-4">Plan Ahorro</h4>
+                    <p class="text-gray-300 mb-6">Programa de ahorro previo con descuentos especiales</p>
+                    <div class="text-3xl font-bold text-red-500 mb-2">15%</div>
+                    <p class="text-sm text-gray-400 mb-6">Descuento</p>
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg hover:bg-red-700 transition-all duration-300 shadow-lg">
                         Más Información
                     </button>
                 </div>
@@ -633,38 +715,38 @@
     </section>
 
     <!-- Benefits Section -->
-    <section class="py-20 bg-slate-800 text-white">
+    <section class="py-20 bg-black border-t border-red-600 text-white">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center mb-12">¿Por qué elegir Giamens Cars?</h3>
+            <h3 class="text-4xl font-bold text-center mb-12">¿Por qué elegir <span class="text-red-500">Giamens Cars</span>?</h3>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="text-center">
+                <div class="text-center bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition-all duration-300">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Entrega Inmediata</h4>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Entrega Inmediata</h4>
                     <p class="text-gray-300">Llevate tu auto el mismo día con todos los papeles en regla</p>
                 </div>
                 
-                <div class="text-center">
+                <div class="text-center bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition-all duration-300">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Garantía Oficial</h4>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Garantía Oficial</h4>
                     <p class="text-gray-300">Todos nuestros vehículos incluyen garantía de fábrica completa</p>
                 </div>
                 
-                <div class="text-center">
+                <div class="text-center bg-gray-900 p-6 rounded-xl border border-gray-700 hover:border-red-600 transition-all duration-300">
                     <div class="w-20 h-20 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-6">
-                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-                    <h4 class="text-xl font-bold mb-4">Plan de Ahorro</h4>
+                    <h4 class="text-xl font-bold mb-4 text-red-500">Plan de Ahorro</h4>
                     <p class="text-gray-300">Programas flexibles para que puedas acceder al auto de tus sueños</p>
                 </div>
             </div>
@@ -672,67 +754,67 @@
     </section>
 
     <!-- Testimonials Section -->
-    <section class="py-20 bg-gray-50">
+    <section class="py-20 bg-gray-900 border-t border-red-600">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center text-slate-800 mb-12">Lo que dicen nuestros clientes</h3>
+            <h3 class="text-4xl font-bold text-center text-white mb-12">Lo que dicen nuestros <span class="text-red-500">clientes</span></h3>
             
             <div class="grid md:grid-cols-3 gap-8">
-                <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="bg-black border border-gray-700 rounded-xl shadow-lg p-8 hover:border-red-600 transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                             M
                         </div>
                         <div>
-                            <h5 class="font-bold text-slate-800">María González</h5>
-                            <div class="star-rating flex">
+                            <h5 class="font-bold text-white">María González</h5>
+                            <div class="star-rating flex text-red-500">
                                 ★★★★★
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic">"Excelente atención y el mejor precio del mercado. Mi Toyota RAV4 llegó en tiempo récord y con todos los accesorios prometidos."</p>
+                    <p class="text-gray-300 italic">"Excelente atención y el mejor precio del mercado. Mi Toyota RAV4 llegó en tiempo récord y con todos los accesorios prometidos."</p>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="bg-black border border-gray-700 rounded-xl shadow-lg p-8 hover:border-red-600 transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                             C
                         </div>
                         <div>
-                            <h5 class="font-bold text-slate-800">Carlos Rodríguez</h5>
-                            <div class="star-rating flex">
+                            <h5 class="font-bold text-white">Carlos Rodríguez</h5>
+                            <div class="star-rating flex text-red-500">
                                 ★★★★★
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic">"La financiación fue súper fácil y transparente. Sin sorpresas ni letra chica. Recomiendo AutoElite al 100%."</p>
+                    <p class="text-gray-300 italic">"La financiación fue súper fácil y transparente. Sin sorpresas ni letra chica. Recomiendo Giamens Cars al 100%."</p>
                 </div>
                 
-                <div class="bg-white rounded-xl shadow-lg p-8">
+                <div class="bg-black border border-gray-700 rounded-xl shadow-lg p-8 hover:border-red-600 transition-all duration-300">
                     <div class="flex items-center mb-4">
-                        <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
+                        <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center text-white font-bold text-lg mr-4">
                             A
                         </div>
                         <div>
-                            <h5 class="font-bold text-slate-800">Ana Martínez</h5>
-                            <div class="star-rating flex">
+                            <h5 class="font-bold text-white">Ana Martínez</h5>
+                            <div class="star-rating flex text-red-500">
                                 ★★★★★
                             </div>
                         </div>
                     </div>
-                    <p class="text-gray-600 italic">"Compré mi primer auto aquí y la experiencia fue increíble. El equipo me asesoró perfectamente para encontrar lo que necesitaba."</p>
+                    <p class="text-gray-300 italic">"Compré mi primer auto aquí y la experiencia fue increíble. El equipo me asesoró perfectamente para encontrar lo que necesitaba."</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Special Offers Section -->
-    <section class="py-20 bg-gradient-to-br from-yellow-400 via-orange-500 to-red-500 text-white relative overflow-hidden">
+    <section class="py-20 bg-black border-t border-red-600 text-white relative overflow-hidden">
         <!-- Clean background pattern -->
         <div class="absolute inset-0 opacity-5">
             <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
                 <defs>
                     <pattern id="offer-grid" width="20" height="20" patternUnits="userSpaceOnUse">
-                        <circle cx="10" cy="10" r="1" fill="currentColor"/>
+                        <circle cx="10" cy="10" r="1" fill="#dc2626"/>
                     </pattern>
                 </defs>
                 <rect width="100%" height="100%" fill="url(#offer-grid)" />
@@ -741,57 +823,57 @@
         
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-16">
-                <h3 class="text-5xl font-bold mb-4 gradient-text">🎉 Ofertas Imperdibles</h3>
-                <p class="text-xl text-yellow-100 max-w-3xl mx-auto">
+                <h3 class="text-5xl font-bold mb-4 text-white">🎉 Ofertas <span class="text-red-500">Imperdibles</span></h3>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     ¡Solo por tiempo limitado! No dejes pasar estas increíbles promociones
                 </p>
             </div>
             
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Offer 1 -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-lg text-sm font-bold">
+                <div class="bg-gray-900 border border-gray-700 rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden hover:border-red-600 transition-all duration-300">
+                    <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
                         -15%
                     </div>
                     <div class="text-6xl mb-4">🚗</div>
-                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Primer Auto</h4>
-                    <p class="text-gray-600 mb-6">15% de descuento en tu primer vehículo + seguro gratis por 6 meses</p>
-                    <div class="bg-gradient-to-r from-red-500 to-pink-500 text-white py-3 px-6 rounded-full text-lg font-bold mb-4">
+                    <h4 class="text-2xl font-bold text-white mb-4">Primer Auto</h4>
+                    <p class="text-gray-300 mb-6">15% de descuento en tu primer vehículo + seguro gratis por 6 meses</p>
+                    <div class="bg-red-600 text-white py-3 px-6 rounded-full text-lg font-bold mb-4">
                         Válido hasta fin de mes
                     </div>
-                    <button class="w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors">
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
                         Aprovechar Oferta
                     </button>
                 </div>
                 
                 <!-- Offer 2 -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-4 right-4 bg-green-500 text-white px-3 py-1 rounded-lg text-sm font-bold">
+                <div class="bg-gray-900 border border-gray-700 rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden hover:border-red-600 transition-all duration-300">
+                    <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
                         0% APR
                     </div>
                     <div class="text-6xl mb-4">💳</div>
-                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Financiación 0%</h4>
-                    <p class="text-gray-600 mb-6">Tasa 0% en los primeros 12 meses para vehículos seleccionados</p>
-                    <div class="bg-gradient-to-r from-green-500 to-emerald-500 text-white py-3 px-6 rounded-full text-lg font-bold mb-4">
+                    <h4 class="text-2xl font-bold text-white mb-4">Financiación 0%</h4>
+                    <p class="text-gray-300 mb-6">Tasa 0% en los primeros 12 meses para vehículos seleccionados</p>
+                    <div class="bg-red-600 text-white py-3 px-6 rounded-full text-lg font-bold mb-4">
                         Cupos limitados
                     </div>
-                    <button class="w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors">
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
                         Consultar Modelos
                     </button>
                 </div>
                 
                 <!-- Offer 3 -->
-                <div class="bg-white/95 backdrop-blur-sm rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden">
-                    <div class="absolute top-4 right-4 bg-blue-500 text-white px-3 py-1 rounded-lg text-sm font-bold">
+                <div class="bg-gray-900 border border-gray-700 rounded-2xl p-8 text-center shadow-2xl relative overflow-hidden hover:border-red-600 transition-all duration-300">
+                    <div class="absolute top-4 right-4 bg-red-600 text-white px-3 py-1 rounded-lg text-sm font-bold">
                         GRATIS
                     </div>
                     <div class="text-6xl mb-4">🎁</div>
-                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Pack Premium</h4>
-                    <p class="text-gray-600 mb-6">Llevate accesorios premium gratis: llantas, audio y más</p>
-                    <div class="bg-gradient-to-r from-blue-500 to-indigo-500 text-white py-3 px-6 rounded-full text-lg font-bold mb-4">
+                    <h4 class="text-2xl font-bold text-white mb-4">Pack Premium</h4>
+                    <p class="text-gray-300 mb-6">Llevate accesorios premium gratis: llantas, audio y más</p>
+                    <div class="bg-red-600 text-white py-3 px-6 rounded-full text-lg font-bold mb-4">
                         Valor $3,500 gratis
                     </div>
-                    <button class="w-full bg-slate-800 text-white py-3 rounded-lg font-semibold hover:bg-slate-900 transition-colors">
+                    <button class="w-full bg-red-600 text-white py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors">
                         Ver Pack Completo
                     </button>
                 </div>
@@ -801,21 +883,21 @@
             <div class="mt-16 text-center">
                 <h4 class="text-2xl font-bold mb-6">⏰ Ofertas terminan en:</h4>
                 <div class="flex justify-center space-x-8">
-                    <div class="bg-white/30 rounded-xl p-6 min-w-[90px] shadow-lg border border-white/20">
-                        <div class="text-3xl font-bold" id="days">03</div>
-                        <div class="text-sm font-semibold">Días</div>
+                    <div class="bg-gray-900 border border-red-600 rounded-xl p-6 min-w-[90px] shadow-lg">
+                        <div class="text-3xl font-bold text-red-500" id="days">03</div>
+                        <div class="text-sm font-semibold text-white">Días</div>
                     </div>
-                    <div class="bg-white/30 rounded-xl p-6 min-w-[90px] shadow-lg border border-white/20">
-                        <div class="text-3xl font-bold" id="hours">12</div>
-                        <div class="text-sm font-semibold">Horas</div>
+                    <div class="bg-gray-900 border border-red-600 rounded-xl p-6 min-w-[90px] shadow-lg">
+                        <div class="text-3xl font-bold text-red-500" id="hours">12</div>
+                        <div class="text-sm font-semibold text-white">Horas</div>
                     </div>
-                    <div class="bg-white/30 rounded-xl p-6 min-w-[90px] shadow-lg border border-white/20">
-                        <div class="text-3xl font-bold" id="minutes">45</div>
-                        <div class="text-sm font-semibold">Minutos</div>
+                    <div class="bg-gray-900 border border-red-600 rounded-xl p-6 min-w-[90px] shadow-lg">
+                        <div class="text-3xl font-bold text-red-500" id="minutes">45</div>
+                        <div class="text-sm font-semibold text-white">Minutos</div>
                     </div>
-                    <div class="bg-white/30 rounded-xl p-6 min-w-[90px] shadow-lg border border-white/20">
-                        <div class="text-3xl font-bold" id="seconds">33</div>
-                        <div class="text-sm font-semibold">Segundos</div>
+                    <div class="bg-gray-900 border border-red-600 rounded-xl p-6 min-w-[90px] shadow-lg">
+                        <div class="text-3xl font-bold text-red-500" id="seconds">33</div>
+                        <div class="text-sm font-semibold text-white">Segundos</div>
                     </div>
                 </div>
             </div>
@@ -823,21 +905,21 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contacto" class="py-20 bg-white">
+    <section id="contacto" class="py-20 bg-black border-t border-red-600">
         <div class="container mx-auto px-6">
-            <h3 class="text-4xl font-bold text-center text-slate-800 mb-4">¿Listo para tu nuevo auto?</h3>
-            <p class="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            <h3 class="text-4xl font-bold text-center text-white mb-4">¿Listo para tu <span class="text-red-500">nuevo auto</span>?</h3>
+            <p class="text-gray-300 text-center mb-12 max-w-2xl mx-auto">
                 Completa el formulario y nos pondremos en contacto contigo en menos de 24 horas
             </p>
             
             <div class="grid lg:grid-cols-2 gap-12 items-center">
                 <!-- Contact Form -->
                 <div>
-                    <form class="bg-gradient-to-br from-white to-gray-50 rounded-2xl p-8 shadow-2xl border border-gray-100" onsubmit="handleSubmit(event)">
+                    <form class="bg-gray-900 border border-gray-700 rounded-2xl p-8 shadow-2xl" onsubmit="handleSubmit(event)">
                         <div class="grid md:grid-cols-2 gap-6 mb-6">
                             <div class="relative">
-                                <label class="block text-gray-700 font-semibold mb-2">Nombre completo</label>
-                                <input type="text" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 hover:border-red-300" placeholder="Tu nombre completo" required>
+                                <label class="block text-white font-semibold mb-2">Nombre completo</label>
+                                <input type="text" class="w-full px-4 py-3 bg-black border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300 hover:border-red-400" placeholder="Tu nombre completo" required>
                                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 pt-8">
                                     <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
@@ -845,8 +927,8 @@
                                 </div>
                             </div>
                             <div class="relative">
-                                <label class="block text-gray-700 font-semibold mb-2">Teléfono</label>
-                                <input type="tel" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 hover:border-red-300" placeholder="Tu número de teléfono" required>
+                                <label class="block text-white font-semibold mb-2">Teléfono</label>
+                                <input type="tel" class="w-full px-4 py-3 bg-black border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300 hover:border-red-400" placeholder="Tu número de teléfono" required>
                                 <div class="absolute inset-y-0 right-0 flex items-center pr-3 pt-8">
                                     <svg class="w-5 h-5 text-gray-400" fill="currentColor" viewBox="0 0 24 24">
                                         <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/>
@@ -856,13 +938,13 @@
                         </div>
                         
                         <div class="mb-6">
-                            <label class="block text-gray-700 font-semibold mb-2">Email</label>
-                            <input type="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 hover:border-red-300" placeholder="tu@email.com" required>
+                            <label class="block text-white font-semibold mb-2">Email</label>
+                            <input type="email" class="w-full px-4 py-3 bg-black border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300 hover:border-red-400" placeholder="tu@email.com" required>
                         </div>
                         
                         <div class="mb-6">
-                            <label class="block text-gray-700 font-semibold mb-2">Presupuesto aproximado</label>
-                            <select class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent transition-all duration-300 hover:border-red-300" required>
+                            <label class="block text-white font-semibold mb-2">Presupuesto aproximado</label>
+                            <select class="w-full px-4 py-3 bg-black border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 transition-all duration-300 hover:border-red-400" required>
                                 <option value="">Selecciona tu rango</option>
                                 <option value="20000-30000">$20,000 - $30,000</option>
                                 <option value="30000-40000">$30,000 - $40,000</option>
@@ -872,22 +954,22 @@
                         </div>
                         
                         <div class="mb-6">
-                            <label class="block text-gray-700 font-semibold mb-2">¿Qué auto te interesa?</label>
-                            <textarea class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-red-500 focus:border-transparent h-32 transition-all duration-300 hover:border-red-300" placeholder="Cuéntanos qué tipo de vehículo buscas, características importantes para ti, uso que le darás, etc." required></textarea>
+                            <label class="block text-white font-semibold mb-2">¿Qué auto te interesa?</label>
+                            <textarea class="w-full px-4 py-3 bg-black border border-gray-600 text-white rounded-lg focus:ring-2 focus:ring-red-500 focus:border-red-500 h-32 transition-all duration-300 hover:border-red-400" placeholder="Cuéntanos qué tipo de vehículo buscas, características importantes para ti, uso que le darás, etc." required></textarea>
                         </div>
                         
                         <div class="mb-6">
                             <label class="flex items-center">
-                                <input type="checkbox" class="rounded border-gray-300 text-red-600 focus:ring-red-500" required>
-                                <span class="ml-2 text-sm text-gray-600">Acepto recibir información comercial y promociones especiales</span>
+                                <input type="checkbox" class="rounded border-gray-600 text-red-600 focus:ring-red-500 bg-black" required>
+                                <span class="ml-2 text-sm text-gray-300">Acepto recibir información comercial y promociones especiales</span>
                             </label>
                         </div>
                         
-                        <button type="submit" class="w-full bg-gradient-to-r from-red-600 to-red-700 text-white py-4 rounded-lg text-lg font-semibold hover:from-red-700 hover:to-red-800 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                        <button type="submit" class="w-full bg-red-600 text-white py-4 rounded-lg text-lg font-semibold hover:bg-red-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
                             🚗 Quiero mi auto - Contactar ahora
                         </button>
                         
-                        <p class="text-xs text-gray-500 text-center mt-4">
+                        <p class="text-xs text-gray-400 text-center mt-4">
                             📞 Te llamaremos en menos de 24 horas | 🔒 Tus datos están seguros
                         </p>
                     </form>
@@ -934,40 +1016,40 @@
                         </div>
                     </div>
                     
-                    <div class="bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8">
-                        <h4 class="text-xl font-bold text-slate-800 mb-6">¿Por qué elegirnos?</h4>
+                    <div class="bg-gray-900 border border-gray-700 rounded-2xl p-8">
+                        <h4 class="text-xl font-bold text-white mb-6">¿Por qué <span class="text-red-500">elegirnos</span>?</h4>
                         <div class="space-y-4">
                             <div class="flex items-center space-x-3">
-                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                <div class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Respuesta en menos de 24 horas</span>
+                                <span class="text-gray-300">Respuesta en menos de 24 horas</span>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                <div class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Asesoramiento personalizado</span>
+                                <span class="text-gray-300">Asesoramiento personalizado</span>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                <div class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Las mejores tasas de financiación</span>
+                                <span class="text-gray-300">Las mejores tasas de financiación</span>
                             </div>
                             <div class="flex items-center space-x-3">
-                                <div class="w-6 h-6 bg-green-500 rounded-full flex items-center justify-center">
+                                <div class="w-6 h-6 bg-red-600 rounded-full flex items-center justify-center">
                                     <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
                                         <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                                     </svg>
                                 </div>
-                                <span class="text-gray-700">Garantía oficial en todos nuestros autos</span>
+                                <span class="text-gray-300">Garantía oficial en todos nuestros autos</span>
                             </div>
                         </div>
                     </div>
@@ -977,18 +1059,18 @@
     </section>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12">
+    <footer class="bg-black border-t border-red-600 text-white py-12">
         <div class="container mx-auto px-6">
             <div class="grid md:grid-cols-4 gap-8">
                 <div>
                     <div class="flex justify-center mb-6">
                         <img src="autitos.png" alt="Giamens Cars Logo" class="w-24 h-24 object-contain">
                     </div>
-                    <p class="text-gray-400">Tu concesionaria de confianza desde 1995. Más de 25 años conectando personas con el auto de sus sueños.</p>
+                    <p class="text-gray-400">Tu concesionaria de confianza desde 1995. Más de <span class="text-red-500">25 años</span> conectando personas con el auto de sus sueños.</p>
                 </div>
                 
                 <div>
-                    <h5 class="font-bold mb-4">Contacto</h5>
+                    <h5 class="font-bold mb-4 text-red-500">Contacto</h5>
                     <div class="space-y-2 text-gray-400">
                         <p>📍 Av. Principal 1234, Ciudad</p>
                         <p>📞 (011) 4567-8900</p>
@@ -997,7 +1079,7 @@
                 </div>
                 
                 <div>
-                    <h5 class="font-bold mb-4">Horarios</h5>
+                    <h5 class="font-bold mb-4 text-red-500">Horarios</h5>
                     <div class="space-y-2 text-gray-400">
                         <p>Lun - Vie: 9:00 - 19:00</p>
                         <p>Sábados: 9:00 - 17:00</p>
@@ -1006,42 +1088,68 @@
                 </div>
                 
                 <div>
-                    <h5 class="font-bold mb-4">Síguenos</h5>
+                    <h5 class="font-bold mb-4 text-red-500">Síguenos</h5>
                     <div class="flex space-x-4">
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center hover:bg-blue-700 transition-colors">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
                             </svg>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-blue-800 rounded-full flex items-center justify-center hover:bg-blue-900 transition-colors">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29 0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15 0 1.49.75 2.81 1.91 3.56-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.22 4.22 0 0 1-1.93.07 4.28 4.28 0 0 0 4 2.98 8.521 8.521 0 0 1-5.33 1.84c-.34 0-.68-.02-1.02-.06C3.44 20.29 5.7 21 8.12 21 16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.14-2.23z"/>
                             </svg>
                         </a>
-                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-pink-600 rounded-full flex items-center justify-center hover:bg-pink-700 transition-colors">
+                        <a href="#" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-red-600 rounded-full flex items-center justify-center hover:bg-red-700 transition-colors">
                             <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                                 <path d="M12.017 0C5.396 0 .029 5.367.029 11.987c0 5.079 3.158 9.417 7.618 11.174-.105-.949-.199-2.403.041-3.439.219-.937 1.406-5.957 1.406-5.957s-.359-.72-.359-1.781c0-1.663.967-2.911 2.168-2.911 1.024 0 1.518.769 1.518 1.688 0 1.029-.653 2.567-.992 3.992-.285 1.193.6 2.165 1.775 2.165 2.128 0 3.768-2.245 3.768-5.487 0-2.861-2.063-4.869-5.008-4.869-3.41 0-5.409 2.562-5.409 5.199 0 1.033.394 2.143.889 2.741.097.118.112.221.085.345-.09.375-.293 1.199-.334 1.363-.053.225-.172.271-.402.165-1.495-.69-2.433-2.878-2.433-4.646 0-3.776 2.748-7.252 7.92-7.252 4.158 0 7.392 2.967 7.392 6.923 0 4.135-2.607 7.462-6.233 7.462-1.214 0-2.357-.629-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24.009 12.017 24.009c6.624 0 11.99-5.367 11.99-11.988C24.007 5.367 18.641.001.012.001z"/>
                             </svg>
                         </a>
                     </div>
-                    <div class="mt-4">
-                        <a href="https://wa.me/1234567890" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-2 bg-green-600 text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-colors">
-                            <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
-                            </svg>
-                            <span>WhatsApp</span>
-                        </a>
-                    </div>
                 </div>
             </div>
             
-            <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
-                <p>&copy; 2024 Giamens Cars. Todos los derechos reservados.</p>
+            <div class="border-t border-red-600 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2024 <span class="text-red-500">Giamens Cars</span>. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Car data for modals
+        const carData = {
+            'toyota-rav4': {
+                name: 'Toyota RAV4 2024',
+                price: '$45,990',
+                originalPrice: '$48,990',
+                description: 'SUV compacta con tecnología híbrida avanzada, perfecta para la ciudad y aventuras familiares.',
+                features: ['Sistema híbrido', 'Tracción AWD', 'Cámara 360°', 'Apple CarPlay', 'Asientos calefaccionados'],
+                phone: '5491123456789'
+            },
+            'honda-accord': {
+                name: 'Honda Accord 2024',
+                price: '$38,500',
+                description: 'Sedán ejecutivo con máximo confort y tecnología de última generación.',
+                features: ['Motor Turbo', 'Asientos de cuero', 'Sunroof panorámico', 'Honda Sensing', 'Cargador inalámbrico'],
+                phone: '5491123456789'
+            },
+            'ford-f150': {
+                name: 'Ford F-150 2024',
+                price: '$52,800',
+                description: 'Pickup resistente para trabajo y aventura extrema con capacidad de remolque superior.',
+                features: ['Tracción 4WD', 'Caja de aluminio', 'Tow package', 'SYNC 4', 'Asientos con memoria'],
+                phone: '5491123456789'
+            },
+            'mazda-cx5': {
+                name: 'Mazda CX-5 2022',
+                price: '$28,900',
+                originalPrice: '$48,000',
+                description: 'SUV premium con bajo kilometraje - Como nuevo. Solo 15,000 km recorridos.',
+                features: ['Solo 15,000 km', 'Garantía incluida', 'I-ACTIV AWD', 'Bose Audio', 'Cuero premium'],
+                phone: '5491123456789'
+            }
+        };
+
         function scrollToSection(sectionId) {
             document.getElementById(sectionId).scrollIntoView({
                 behavior: 'smooth'
@@ -1066,6 +1174,131 @@
             });
         }
 
+        function filterByBrand(brand) {
+            const cards = document.querySelectorAll('.car-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            // Reset category filters
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons[0].classList.add('active'); // Set "Todos" as active
+            
+            // Filter cars by brand
+            cards.forEach(card => {
+                if (card.dataset.brand === brand) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        function openCarModal(carId) {
+            const car = carData[carId];
+            if (!car) return;
+            
+            const modalContent = document.getElementById('modalContent');
+            modalContent.innerHTML = `
+                <div class="relative">
+                    <!-- Header con imagen del auto -->
+                    <div class="bg-gradient-to-r from-red-600 to-red-800 p-8 text-center rounded-t-2xl">
+                        <div class="w-28 h-28 bg-black bg-opacity-30 rounded-full flex items-center justify-center mx-auto mb-6 shadow-2xl backdrop-blur-sm border-2 border-white">
+                            <svg class="w-16 h-16 text-white" fill="currentColor" viewBox="0 0 120 60">
+                                <path d="M10 40h100c5 0 10-5 10-10V20c0-5-5-10-10-10H90l-10-10H40L30 10H10c-5 0-10 5-10 10v10c0 5 5 10 10 10z"/>
+                                <circle cx="25" cy="50" r="8" fill="#ffffff"/>
+                                <circle cx="95" cy="50" r="8" fill="#ffffff"/>
+                                <rect x="15" y="15" width="15" height="10" rx="2" fill="rgba(255,255,255,0.8)"/>
+                                <rect x="90" y="15" width="15" height="10" rx="2" fill="rgba(255,255,255,0.8)"/>
+                            </svg>
+                        </div>
+                        <h2 class="text-3xl font-bold text-white mb-4">${car.name}</h2>
+                        <div class="flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4">
+                            ${car.originalPrice ? `<span class="text-red-200 line-through text-xl opacity-75">${car.originalPrice}</span>` : ''}
+                            <span class="text-4xl font-bold text-white bg-black bg-opacity-30 px-4 py-2 rounded-lg">${car.price}</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Contenido principal -->
+                    <div class="bg-black p-8 space-y-6">
+                        <!-- Descripción -->
+                        <div class="bg-gray-900 p-6 rounded-xl border-l-4 border-red-600 shadow-lg">
+                            <h3 class="text-xl font-bold text-red-500 mb-3 flex items-center">
+                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                                </svg>
+                                Descripción
+                            </h3>
+                            <p class="text-gray-300 text-base leading-relaxed">${car.description}</p>
+                        </div>
+                        
+                        <!-- Características -->
+                        <div class="bg-gray-900 p-6 rounded-xl border-l-4 border-red-600 shadow-lg">
+                            <h3 class="text-xl font-bold text-red-500 mb-4 flex items-center">
+                                <svg class="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                </svg>
+                                Características destacadas
+                            </h3>
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                ${car.features.map(feature => `
+                                    <div class="flex items-center space-x-3 bg-black p-4 rounded-lg border border-gray-700 hover:border-red-600 transition-colors">
+                                        <div class="w-2 h-2 bg-red-500 rounded-full flex-shrink-0"></div>
+                                        <span class="text-gray-300 font-medium">${feature}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Footer del modal -->
+                    <div class="bg-gray-900 p-8 text-center rounded-b-2xl border-t-2 border-red-600">
+                        <p class="text-gray-400 mb-6 text-lg">¿Te interesa este vehículo? ¡Contáctanos ahora!</p>
+                        <a href="https://wa.me/${car.phone}?text=Hola, estoy interesado en el ${encodeURIComponent(car.name)} que tiene un precio de ${encodeURIComponent(car.price)}. ¿Podrían darme más información y coordinar una visita?" 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           class="inline-flex items-center space-x-3 bg-green-600 text-white px-8 py-4 rounded-xl text-lg font-bold hover:bg-green-700 transition-all duration-300 transform hover:scale-105 shadow-2xl hover:shadow-green-600/25">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.465 3.516"/>
+                            </svg>
+                            <span>💬 Contactar por WhatsApp</span>
+                        </a>
+                        <p class="text-xs text-gray-500 mt-4">Respuesta inmediata • Atención personalizada</p>
+                    </div>
+                </div>
+            `;
+            
+            document.getElementById('carModal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCarModal() {
+            const modal = document.getElementById('carModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        window.onclick = function(event) {
+            const modal = document.getElementById('carModal');
+            if (event.target === modal) {
+                closeCarModal();
+            }
+        }
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                closeCarModal();
+            }
+        });
+
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Modal system initialized');
+            
+            // Test modal functionality - uncomment the line below to test
+            // setTimeout(() => openCarModal('toyota-rav4'), 2000);
+        });
+
         function handleSubmit(event) {
             event.preventDefault();
             
@@ -1080,6 +1313,12 @@
             
             // Reset form
             event.target.reset();
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
         }
 
         // Counter animation for statistics
